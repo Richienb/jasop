@@ -1,0 +1,16 @@
+{
+  "name": "jasop",
+  "description": "A window.open JavaScript wrapper.",
+  "version": "1.0.0",
+  "main": "jasop.js",
+  "scripts": {
+    "start": "node jasop.js",
+    "compile": "google-closure-compiler --compilation_level=bundle --js=jasop.js --js_output_file=jasop.min.js"
+  },
+  "repository": "https://github.com/Richienb/jasop.git",
+  "author": "Richie Bendall <richiebendall@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "google-closure-compiler": "^20190301.0.0"
+  }
+}
