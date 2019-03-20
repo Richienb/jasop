@@ -7,9 +7,9 @@ const Jasop = (url, opts = {}) => {
         // If entry value is not in array
         if (!["replace", "title"].includes(i[0])) {
             // If entry value is boolean
-            if (typeof i[1] === "boolean") params.push(i[0].toString() + "=" + (i[1] === true ? "yes" : "no"))
+            if (typeof i[1] === "boolean") params.push(`${i[0].toString()}=${i[1] === true ? "yes" : "no"}`)
             // If entry value is not boolean
-            else params.push(i[0].toString() + "=" + i[1].toString())
+            else params.push(`${i[0].toString()}=${i[1].toString()}`)
         }
     })
 
