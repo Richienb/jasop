@@ -1,11 +1,11 @@
+# Jasop
+
+A `window.open` JavaScript wrapper.
+
 [![Travis CI Build Status](https://img.shields.io/travis/com/Richienb/jasop/master.svg?style=for-the-badge)](https://travis-ci.com/Richienb/jasop)
 [![CodeFactor Score](https://www.codefactor.io/repository/github/Richienb/jasop/badge?style=for-the-badge)](https://www.codefactor.io/repository/github/Richienb/jasop)
 
-# Jasop
-
 [![NPM](https://nodei.co/npm/jasop.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/jasop)
-
-A `window.open` JavaScript wrapper.
 
 ## Importing
 
