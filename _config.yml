@@ -1,1 +1,3 @@
-remote_theme: Richienb/jekyll-theme-richienb
+theme: jekyll-theme-cayman
+title: Jasop
+description: A window.open JavaScript wrapper.
