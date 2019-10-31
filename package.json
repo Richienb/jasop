@@ -11,6 +11,6 @@
   "author": "Richie Bendall <richiebendall@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "google-closure-compiler": "^20190709.0.0"
+    "google-closure-compiler": "^20191027.0.0"
   }
 }
