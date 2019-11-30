@@ -1,38 +1,46 @@
-# Jasop
+# Jasop [![Travis CI Build Status](https://img.shields.io/travis/com/Richienb/jasop/master.svg?style=for-the-badge)](https://travis-ci.com/Richienb/jasop)
 
 A `window.open` JavaScript wrapper.
 
-[![Travis CI Build Status](https://img.shields.io/travis/com/Richienb/jasop/master.svg?style=for-the-badge)](https://travis-ci.com/Richienb/jasop)
-[![CodeFactor Score](https://www.codefactor.io/repository/github/Richienb/jasop/badge?style=for-the-badge)](https://www.codefactor.io/repository/github/Richienb/jasop)
+[![NPM Badge](https://nodei.co/npm/jasop.png)](https://npmjs.com/package/jasop)
 
-[![NPM](https://nodei.co/npm/jasop.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/jasop)
+## Install
 
-## Importing
-
-From your NodeJS application:
-
-```js
-const Jasop = require("jasop")
-```
-
-From your web application:
-
-```html
-<script src="https://unpkg.com/jasop/jasop.min.js"></script>
+```sh
+npm install jasop
 ```
 
 ## Usage
 
 ```js
-// Will parse as: window.open("https://example.com", "MyWindow", "height=100,scrollbars=yes,width=200", true)
-Jasop(
+const jasop = require("jasop");
+
+jasop(
     "https://example.com", // URL
     {
         height: 100, // You can use any window.open option
-        scrollbars: true // Booleans will the parsed
+        scrollbars: true, // Booleans will the parsed
         width: 200, // Everything else will be converted to a string
+        top: 100, // Options are polyfilled
         title: "MyWindow", // Custom window title
         replace: true // History behaviour
     }
 )
+// window.open("https://example.com", "MyWindow", "height=100,scrollbars=yes,width=200,top=100,screenY=100", true)
 ```
+
+## API
+
+### jasop(url, options?)
+
+#### url
+
+Type: `string (url)`
+
+The URL to open.
+
+#### options
+
+Type: `object`
+
+The options to use. Refer to [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#Window_features)

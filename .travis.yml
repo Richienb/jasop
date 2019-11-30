@@ -1,36 +1,8 @@
-language:                 node_js
-
-node_js:                  lts/*
+language: node_js
 
 cache:
-    - npm
     - yarn
 
-before_install:
-    - npm install --global yarn
-
-install:
-    - yarn install --non-interactive --production false
-
-script:
-    - yarn compile
-    - node jasop.min.js
-    - if [ -n "$TRAVIS_TAG" ]; then npm version $TRAVIS_TAG; fi
-
-deploy:
-    - provider:           npm
-      email:              richiebendall@gmail.com
-      skip_cleanup:       true
-      api_key:            $npm_token
-      on:
-          tags:           true
-          repo:           Richienb/jasop
-
-    -   provider:         releases
-        api_key:          $github_token
-        file_glob:        true
-        file:             jasop.*
-        skip_cleanup:     true
-        on:
-            tags:           true
-            repo:           Richienb/jasop
+node_js:
+    - "lts/*"
+    - "node"
