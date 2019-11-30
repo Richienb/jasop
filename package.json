@@ -1,6 +1,6 @@
 {
     "name": "jasop",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "description": "A window.open JavaScript wrapper.",
     "repository": "https://github.com/Richienb/jasop.git",
     "author": "Richie Bendall <richiebendall@gmail.com>",
