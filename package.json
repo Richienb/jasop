@@ -1,21 +1,24 @@
 {
 	"name": "jasop",
 	"version": "1.0.0",
-	"description": "A window.open JavaScript wrapper.",
-	"repository": "https://github.com/Richienb/jasop.git",
-	"author": "Richie Bendall <richiebendall@gmail.com>",
+	"description": "Human-friendly `window.open`.",
+	"repository": "Richienb/jasop",
+	"author": {
+		"name": "Richie Bendall",
+		"email": "richiebendall@gmail.com"
+	},
 	"license": "MIT",
-	"main": "index.js",
+	"type": "module",
+	"exports": "./index.js",
 	"files": [
 		"index.js",
 		"index.d.ts"
 	],
 	"engines": {
-		"node": ">=6"
+		"node": ">=12"
 	},
 	"scripts": {
-		"lint": "xo",
-		"test": "yarn lint && ava"
+		"test": "xo && uvu && tsd"
 	},
 	"keywords": [
 		"window",
@@ -23,18 +26,13 @@
 		"browser",
 		"wrapper"
 	],
-	"dependencies": {
-		"lodash": "^4.17.15"
-	},
 	"devDependencies": {
-		"ava": "^2.4.0",
-		"eslint-config-richienb": "^0.3.0",
-		"xo": "^0.25.3"
-	},
-	"resolutions": {
-		"eslint": "^6.8.0"
+		"dot-prop": "^7.2.0",
+		"tsd": "^0.20.0",
+		"uvu": "^0.5.3",
+		"xo": "^0.48.0"
 	},
 	"xo": {
-		"extends": "richienb/browser"
+		"env": "browser"
 	}
 }

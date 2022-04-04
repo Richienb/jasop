@@ -1,25 +1,33 @@
-import test from "ava"
-import jasop from "."
+import {test} from 'uvu';
+import {equal} from 'uvu/assert'; // eslint-disable-line node/file-extension-in-import
+import {getProperty, setProperty} from 'dot-prop';
+import jasop from './index.js';
 
-function setWindowOpen(cb) {
-	globalThis.window = {
-		open: cb,
-	}
+function testJasop(...arguments_) {
+	let calledArguments;
+
+	const previousValue = getProperty(globalThis, 'window.open');
+
+	setProperty(globalThis, 'window.open', (...arguments_) => {
+		calledArguments = arguments_;
+	});
+
+	jasop(...arguments_);
+
+	setProperty(globalThis, 'window.open', previousValue);
+
+	return calledArguments;
 }
 
-test("main", (t) => {
-	setWindowOpen((...args) => t.deepEqual(args, ["https://example.com", "MyWindow", "height=100,scrollbars=yes,width=200,top=100,screenY=100", true]))
-	jasop(
-		"https://example.com", // URL
+test('main', () => {
+	equal(testJasop(
+		'https://example.com',
 		{
-			height: 100, // You can use any window.open option
-			scrollbars: true, // Booleans will the parsed
-			width: 200, // Everything else will be converted to a string
-			top: 100, // Options are polyfilled
-			title: "MyWindow", // Custom window title
-			replace: true, // History behaviour
+			height: 100,
+			scrollbars: true,
+			width: 200,
 		},
-	)
+	), ['https://example.com', '', 'height=100,scrollbars=yes,width=200']);
+});
 
-	t.pass()
-})
+test.run();
